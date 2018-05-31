@@ -28,13 +28,13 @@ def input_dir_name_or_exit():
         work_dir == sys.argv[1]
         if os.path.isdir(work_dir) and os.path.exists(work_dir):
             print('Рабочая дректория:  {}'.format(work_dir))
-            sys.exist(1)
+
     if not os.path.isdir(work_dir):
-            print('Указанный путь {} не является директорией'.format(work_dir))
-            sys.exit(1)
+        print('Указанный путь {} не является директорией'.format(work_dir))
+        return None
     if not os.path.exists(work_dir):
-            print('Пути к папке не существует:  '.format(work_dir))
-            sys.exit(1)
+        print('Пути к папке не существует:  '.format(work_dir))
+        return None
 
     return work_dir
 
