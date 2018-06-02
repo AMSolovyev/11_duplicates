@@ -9,15 +9,14 @@ def get_size_name_file_and_path_dict(path):
         for my_file in my_files:
             file_path = os.path.join(root, my_file)
             file_size = os.path.getsize(file_path)
-            found_size_name_file_and_path_dict['{}_{}'.format(
-                my_file, file_size)].append(file_path)
+            found_size_name_file_and_path_dict[
+                (my_file, file_size)].append(file_path)
     return found_size_name_file_and_path_dict
 
 
 def find_duplicates(size_name_file_and_path_dict):
-    return [file_path
-            for file_path in size_name_file_and_path_dict.values()
-            if len(file_path) > 1]
+    return {key: value for key, value in size_name_file_and_path_dict.items()
+            if len(value) > 1}
 
 
 def print_duplicates(duplicates):
