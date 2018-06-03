@@ -15,7 +15,8 @@ def get_size_name_file_and_path_dict(path):
 
 
 def get_duplicates(size_name_file_and_path_dict):
-    return {file_info: paths for file_info, paths in size_name_file_and_path_dict.items()
+    return {file_info: paths for file_info,
+            paths in size_name_file_and_path_dict.items()
             if len(file_info) > 1}
 
 
@@ -25,14 +26,14 @@ def print_duplicates(duplicates):
     else:
         print('Найдены дубликаты')
         delimiter = '=' * 80
-        for paths in duplicates:
+        for path in duplicates:
             print(delimiter)
-            for path in paths:
-               print(path)
+            for path in path:
+                print(path)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) <2:
+    if len(sys.argv) < 2:
         exit('The directory is not specifies')
     work_dir = sys.argv[1]
     if not os.path.isdir(work_dir):
